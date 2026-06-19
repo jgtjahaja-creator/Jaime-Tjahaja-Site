@@ -1,0 +1,303 @@
+/* ============================================
+   Jaime Tjahaja — shared design tokens
+   ============================================ */
+
+:root {
+  /* Core palette — drawn from the single artwork's sepia ink-wash */
+  --umber-deep: #3D332B;
+  --umber-mid: #5C4F42;
+  --parchment: #EDE7DC;
+  --parchment-warm: #E4DBC8;
+  --rust: #9C6B4A;
+  --rust-bright: #B57A52;
+
+  /* Culinary accent — fresh, warm-neutral counterpoint */
+  --sage: #5C6B4E;
+  --sage-bright: #748061;
+  --cream: #F4F1E8;
+
+  --ink: #25201B;
+  --paper: #FAF7F0;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+/* ============================================
+   Landing page — split layout
+   ============================================ */
+
+body.landing {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  text-align: center;
+  padding: 2.25rem 1rem 0;
+  pointer-events: none;
+}
+
+.landing-name h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  letter-spacing: 0.08em;
+  color: var(--paper);
+  text-transform: uppercase;
+  margin: 0;
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(37, 32, 27, 0.45);
+  backdrop-filter: blur(6px);
+  border-radius: 2px;
+}
+
+.split {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.split-half {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: flex 0.6s var(--ease);
+}
+
+.split-half:hover { flex: 1.15; }
+
+.split-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.8s var(--ease);
+}
+
+.split-bg-placeholder {
+  background:
+    radial-gradient(ellipse at 25% 15%, rgba(180, 168, 120, 0.35), transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(92, 107, 78, 0.5), transparent 60%),
+    linear-gradient(150deg, #707F5C 0%, #4F5C40 55%, #353E2A 100%);
+}
+
+.split-half:hover .split-bg { transform: scale(1.08); }
+
+.split-scrim {
+  position: absolute;
+  inset: 0;
+}
+
+.music-half .split-scrim {
+  background: linear-gradient(180deg, rgba(37,32,27,0.35) 0%, rgba(37,32,27,0.55) 100%);
+}
+
+.culinary-half .split-scrim {
+  background: linear-gradient(180deg, rgba(37,32,27,0.15) 0%, rgba(37,32,27,0.45) 100%);
+}
+
+.split-label {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 2rem;
+}
+
+.split-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--parchment-warm);
+  opacity: 0.85;
+}
+
+.split-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-weight: 500;
+  color: var(--paper);
+  letter-spacing: 0.01em;
+}
+
+.landing-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  text-align: center;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.landing-footer span {
+  font-size: 0.7rem;
+  color: var(--parchment-warm);
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 720px) {
+  body.landing { height: auto; min-height: 100vh; overflow: visible; }
+  .split { flex-direction: column; }
+  .split-half:hover { flex: 1; }
+  .landing-name { position: relative; padding: 1.5rem 1rem 0.5rem; background: var(--umber-deep); }
+  .landing-name h1 { color: var(--parchment); text-shadow: none; }
+  .split-half { min-height: 50vh; }
+}
+
+/* ============================================
+   Section pages (music / culinary) — shared chrome
+   ============================================ */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-nav .nav-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-nav .nav-links {
+  display: flex;
+  gap: 1.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.site-nav .nav-links a {
+  opacity: 0.75;
+  transition: opacity 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav .nav-links a:hover,
+.site-nav .nav-links a.active {
+  opacity: 1;
+  border-bottom-color: currentColor;
+}
+
+.section-footer {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  font-size: 0.75rem;
+  opacity: 0.55;
+  letter-spacing: 0.03em;
+}
+
+/* ---- Music theme (dark, atmospheric) ---- */
+
+.theme-music {
+  background: var(--umber-deep);
+  color: var(--parchment);
+}
+
+.theme-music .site-nav {
+  background: rgba(61, 51, 43, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(237, 231, 220, 0.1);
+}
+
+.theme-music .nav-name,
+.theme-music .nav-links a { color: var(--parchment); }
+
+.theme-music a.cta,
+.theme-music button.cta {
+  background: var(--rust);
+  color: var(--parchment);
+}
+
+/* ---- Culinary theme (bright, clean) ---- */
+
+.theme-culinary {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.theme-culinary .site-nav {
+  background: rgba(244, 241, 232, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(37, 32, 27, 0.08);
+}
+
+.theme-culinary .nav-name,
+.theme-culinary .nav-links a { color: var(--ink); }
+
+.theme-culinary a.cta,
+.theme-culinary button.cta {
+  background: var(--sage);
+  color: var(--cream);
+}
+
+/* ---- Shared component basics ---- */
+
+.cta {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  border-radius: 2px;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border: none;
+  opacity: 0.15;
+}
+
+.theme-music .divider { background: var(--parchment); }
+.theme-culinary .divider { background: var(--ink); }
