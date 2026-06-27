@@ -739,6 +739,110 @@ body.theme-culinary {
   font-weight: 300;
 }
 
+/* ============================================
+   MENUS SECTION
+   ============================================ */
+
+.menus-section {
+  background: var(--off-white);
+  padding: 6rem 2.5rem;
+  border-top: 1px solid var(--grey-rule);
+}
+
+.menus-header {
+  max-width: 560px;
+  margin: 0 auto 5rem;
+  text-align: center;
+}
+
+.menus-header .section-heading {
+  margin-bottom: 1rem;
+  color: var(--black);
+}
+
+.menus-intro {
+  font-size: 0.88rem;
+  color: var(--grey-mid);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.menu-card {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 4rem 0;
+  border-top: 1px solid var(--grey-rule);
+}
+
+.menu-card:last-child {
+  border-bottom: 1px solid var(--grey-rule);
+}
+
+.menu-meta {
+  margin-bottom: 1.5rem;
+}
+
+.menu-date {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+  font-family: var(--font-body);
+}
+
+.menu-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  color: var(--black);
+  margin-bottom: 3rem;
+}
+
+.menu-courses {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.menu-course {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--grey-rule);
+}
+
+.menu-course p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--black);
+  font-weight: 300;
+  margin: 0;
+}
+
+.menu-divider {
+  height: 2rem;
+}
+
+.menu-section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+  font-family: var(--font-body);
+  font-weight: 500;
+  margin: 0;
+}
+
+.menu-tags {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--grey-mid);
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
 /* Culinary footer CTA */
 .culinary-contact {
   padding: 7rem 2.5rem;
