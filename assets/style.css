@@ -3,7 +3,7 @@
    White base · Thin editorial serif · Orange accent
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@300;400;500&display=swap');
 
 :root {
   --white:   #FFFFFF;
@@ -16,7 +16,7 @@
   --orange:  #FF4E00;
   --orange-dim: #CC3E00;
 
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Barlow Condensed', Impact, sans-serif;
   --font-body: 'DM Sans', -apple-system, sans-serif;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -123,12 +123,13 @@ body.landing {
 
 .panel-title {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  font-weight: 400;
-  font-style: italic;
+  font-size: clamp(4rem, 9vw, 8rem);
+  font-weight: 800;
+  font-style: normal;
+  text-transform: uppercase;
   color: var(--white);
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+  line-height: 0.88;
+  letter-spacing: 0.01em;
   transition: color 0.3s;
 }
 
@@ -308,13 +309,14 @@ body.theme-music {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 10vw, 9rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 0.92;
-  letter-spacing: -0.02em;
+  font-size: clamp(4rem, 10vw, 10rem);
+  font-weight: 800;
+  font-style: normal;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
   color: var(--white);
   margin-bottom: 1.75rem;
+  text-transform: uppercase;
 }
 
 .hero-sub {
@@ -371,11 +373,13 @@ body.theme-music {
 
 .single-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
-  font-weight: 400;
-  line-height: 1;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 800;
+  font-style: normal;
+  text-transform: uppercase;
+  line-height: 0.9;
   margin-bottom: 1.25rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
 }
 
 .single-desc {
@@ -454,12 +458,13 @@ body.theme-music {
 
 .section-heading {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
   margin-bottom: 2.5rem;
-  line-height: 1.05;
+  line-height: 0.95;
 }
 
 .show-row {
@@ -557,6 +562,7 @@ body.theme-music {
   position: relative;
   height: 60vh;
   min-height: 380px;
+  margin-top: 4rem;
 }
 
 .tree-divider img {
@@ -718,10 +724,12 @@ body.theme-culinary {
 
 .service-title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 400;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
   margin-bottom: 0.75rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
 }
 
 .service-desc {
