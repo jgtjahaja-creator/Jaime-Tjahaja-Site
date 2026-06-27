@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /music/exclusive.html
+
+Sitemap: https://www.jaime-tjahaja.com/sitemap.xml
