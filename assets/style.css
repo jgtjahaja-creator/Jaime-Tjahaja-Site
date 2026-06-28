@@ -181,12 +181,20 @@ body.landing {
 
 @media (max-width: 680px) {
   body.landing { height: auto; min-height: 100dvh; overflow: auto; }
-  .split { grid-template-columns: 1fr; grid-template-rows: 50dvh 50dvh; height: 100dvh; }
+  .split { grid-template-columns: 1fr; grid-template-rows: 50dvh 50dvh; height: auto; }
   .panel-divider { display: none; }
   .landing-header { position: relative; background: var(--black); padding: 1.5rem 1rem; }
   .landing-header h1 { background: none; border: none; font-size: 1rem; }
   .panel-title { font-size: clamp(2.5rem, 12vw, 3.5rem); }
   .panel-label { padding: 2rem 1.5rem; }
+  .landing-footer {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    background: var(--black);
+    padding: 1.25rem;
+  }
 }
 
 /* ============================================
