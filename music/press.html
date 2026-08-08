@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press — Jaime Tjahaja</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<style>
+  .epk-hero {
+    padding: 5rem 2.5rem 3rem;
+    max-width: 860px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .epk-hero .hero-name {
+    font-size: clamp(3rem, 8vw, 7rem);
+    margin-bottom: 0.5rem;
+  }
+  .epk-tagline {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 2rem;
+  }
+  .epk-genres {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 2rem;
+  }
+  .epk-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 0.75rem 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .epk-download:hover { border-color: var(--orange); color: var(--orange); }
+
+  .epk-section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3.5rem 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .epk-section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--orange);
+    padding-top: 4px;
+  }
+  .epk-section-content h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    line-height: 0.95;
+  }
+  .epk-section-content p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    margin-bottom: 1em;
+  }
+  .epk-section-content p:last-child { margin-bottom: 0; }
+
+  /* Single block */
+  .single-epk {
+    background: var(--grey-dark);
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0;
+    border-top: none;
+  }
+  .single-epk-art { overflow: hidden; }
+  .single-epk-art img { width: 100%; height: 100%; object-fit: cover; }
+  .single-epk-info { padding: 2rem 2.5rem; }
+  .single-epk-info .epk-section-label { margin-bottom: 0.75rem; display: block; }
+  .single-epk-info h2 { font-family: var(--font-display); font-size: 2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .single-epk-info p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; font-weight: 300; margin-bottom: 1rem; }
+  .single-epk-link { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); border-bottom: 1px solid var(--orange); padding-bottom: 1px; }
+  .single-epk-link:hover { opacity: 0.75; }
+
+  /* Press quote */
+  .press-block {
+    border-left: 3px solid var(--orange);
+    padding: 1.25rem 1.75rem;
+    background: rgba(255,255,255,0.03);
+    margin-top: 1.5rem;
+  }
+  .press-quote {
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    margin: 0 0 0.75rem;
+  }
+  .press-attr {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+  .press-attr a { color: var(--orange); text-decoration: none; border-bottom: 1px solid rgba(255,78,0,0.4); }
+
+  /* Shows */
+  .show-epk-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: center;
+  }
+  .show-epk-date { font-size: 0.8rem; color: rgba(255,255,255,0.4); font-family: 'Courier New', monospace; }
+  .show-epk-venue { font-size: 0.88rem; font-weight: 500; }
+  .show-epk-detail { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+  .show-epk-upcoming { color: var(--orange); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
+
+  /* Contact grid */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .contact-item-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.3rem;
+  }
+  .contact-item-value {
+    font-size: 0.9rem;
+    color: var(--white);
+    font-weight: 300;
+  }
+  .contact-item-value a { color: var(--orange); }
+
+  /* Photo grid */
+  .photo-epk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin-top: 1.5rem;
+  }
+  .photo-epk-grid img { width: 100%; height: 220px; object-fit: cover; filter: grayscale(100%); transition: filter 0.3s; }
+  .photo-epk-grid img:hover { filter: grayscale(0%); }
+  .photo-credit { font-size: 0.65rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.75rem; }
+
+  @media (max-width: 700px) {
+    .epk-section { grid-template-columns: 1fr; gap: 1rem; }
+    .single-epk { grid-template-columns: 1fr; }
+    .single-epk-art { height: 200px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .epk-hero, .epk-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
+</style>
+</head>
+<body class="theme-music">
+
+  <nav class="site-nav">
+    <a class="nav-wordmark" href="../index.html">Jaime Tjahaja</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Music</a></li>
+      <li><a href="press.html" class="active">Press</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="epk-hero">
+    <div class="hero-eyebrow">Electronic Press Kit · 2026</div>
+    <h1 class="hero-name">Jaime<br>Tjahaja</h1>
+    <p class="epk-tagline">Oakland, CA-based songwriter and multi-instrumentalist.</p>
+    <div class="epk-genres">Indie-Folk Rock &nbsp;›&nbsp; Americana &nbsp;›&nbsp; Singer-Songwriter</div>
+    <a href="../assets/jaime-tjahaja-epk.pdf" target="_blank" class="epk-download">↓ &nbsp;Download PDF EPK</a>
+  </div>
+
+  <!-- BIOGRAPHY -->
+  <div class="epk-section">
+    <div class="epk-section-label">Biography</div>
+    <div class="epk-section-content">
+      <h2>About</h2>
+      <p>Born in Indonesia and raised in Northern California, Jaime Tjahaja writes through a third-culture lens — an artist moving between hemispheres of influence, channeling a deeply personal instinct into songs that speak directly to the great American sonic landscape.</p>
+      <p>His songwriting pairs intimate lyricism with vivid imagery — vintage guitar tones, graceful rhythms, and lyrical precision meeting in timeless harmony. His music carries faint echoes of Paul Simon's melodic grace and Jackson Browne's singular presence, while Dylan's mercurial spirit lingers at the edges of influence — never quite defining the work. What emerges is a fresh take on the evolving American songbook: deeply rooted, fully present in the moment, and unmistakably his own.</p>
+      <p>A working musician for over two decades, Jaime studied Northern Hindustani classical music and Gamelan at UC Santa Cruz, played in Bay Area bands including Buckeye Knoll and alongside Alycia Lang, and has been a full member of Free Key Choir since 2023. He launched his solo songwriting project at the height of the pandemic — a veteran musician, arriving on his own terms.</p>
+
+      <div class="press-block">
+        <p class="press-quote">"Rather than trying to explain or resolve the grief that inspired it, 'Indeed I Do' is content to float around inside it... The resulting music video feels like fragments of memory, right down to the haunting vocals of Maya Elise, who never appears in the video, but whose presence looms large."</p>
+        <p class="press-attr">— Cosmic Amanda, Founder &amp; Executive Director · <a href="https://bff.fm/posts/4606" target="_blank" rel="noopener">BFF.FM</a> · Video Premiere, August 7, 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SINGLE -->
+  <div class="epk-section" style="padding: 0; display:block; border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="single-epk">
+      <div class="single-epk-art">
+        <img src="../images/music/tree-orange.jpg" alt="Indeed I Do — single artwork by Charlie Boyd">
+      </div>
+      <div class="single-epk-info">
+        <span class="epk-section-label">Latest Single</span>
+        <h2>Indeed I Do</h2>
+        <p>Written during an arts residency in Ubud, Bali, following the unexpected loss of a close friend. Accompanied by a music video directed by Bay Area filmmaker Edgar Lara.</p>
+        <p style="font-size:0.75rem; color:rgba(255,255,255,0.35); margin-bottom:1rem;">Art by Charlie Boyd</p>
+        <a href="https://jaimetjahaja.bandcamp.com/track/indeed-i-do" target="_blank" rel="noopener" class="single-epk-link">Listen on Bandcamp →</a>
+        &nbsp;&nbsp;
+        <a href="exclusive.html" class="single-epk-link">Release Page →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE -->
+  <div class="epk-section">
+    <div class="epk-section-label">Live</div>
+    <div class="epk-section-content">
+      <h2>Performance History</h2>
+
+      <div class="show-epk-row">
+        <div class="show-epk-date">08.29.26</div>
+        <div>
+          <div class="show-epk-venue">First Congregational Church of Los Angeles</div>
+          <div class="show-epk-detail">Los Angeles, CA &mdash; Free Key Forever (with Free Key Choir)</div>
+          <div class="show-epk-upcoming">Upcoming</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">08.06.26</div>
+        <div>
+          <div class="show-epk-venue">The Ivy Room</div>
+          <div class="show-epk-detail">Albany, CA &mdash; Single Release Show w/ J Camden · John Courage · Slow Coast</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">06.20.26</div>
+        <div>
+          <div class="show-epk-venue">Fête de la Musique — Gilman Wine Block</div>
+          <div class="show-epk-detail">Berkeley, CA</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">05.01.26</div>
+        <div>
+          <div class="show-epk-venue">Little Hill Lounge</div>
+          <div class="show-epk-detail">El Cerrito, CA &mdash; with Suver, Davia Schendel</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">03.27.26</div>
+        <div>
+          <div class="show-epk-venue">Ramsess Art Garden</div>
+          <div class="show-epk-detail">Oakland, CA</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">11.08.25</div>
+        <div>
+          <div class="show-epk-venue">Beauty Supply Arts</div>
+          <div class="show-epk-detail">Oakland, CA</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">09.18.25</div>
+        <div>
+          <div class="show-epk-venue">Turn! Turn! Turn!</div>
+          <div class="show-epk-detail">Portland, OR</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">09.12.25</div>
+        <div>
+          <div class="show-epk-venue">Little Hill Lounge</div>
+          <div class="show-epk-detail">El Cerrito, CA</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">08.24.25</div>
+        <div>
+          <div class="show-epk-venue">Fountain Concert Series #13</div>
+          <div class="show-epk-detail">Bay Area</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">08.08.25</div>
+        <div>
+          <div class="show-epk-venue">Castle in the Sky</div>
+          <div class="show-epk-detail">Oakland, CA</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">05.23.25</div>
+        <div>
+          <div class="show-epk-venue">Big Berry Presents</div>
+          <div class="show-epk-detail">Oakland, CA</div>
+        </div>
+      </div>
+      <div class="show-epk-row">
+        <div class="show-epk-date">05.09.25</div>
+        <div>
+          <div class="show-epk-venue">Beauty Supply Arts — Solo Debut</div>
+          <div class="show-epk-detail">Oakland, CA</div>
+        </div>
+      </div>
+
+      <!-- Photos -->
+      <div class="photo-epk-grid">
+        <img src="../images/music/live-hero.jpg" alt="Jaime Tjahaja live">
+        <img src="../images/music/rehearsal.jpg" alt="Jaime Tjahaja rehearsal">
+      </div>
+      <p class="photo-credit">Photography by Kyle Carnes &amp; Jaime Tjahaja</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="epk-section" id="contact">
+    <div class="epk-section-label">Contact</div>
+    <div class="epk-section-content">
+      <h2>Booking &amp; Press</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-item-label">Booking</div>
+          <div class="contact-item-value"><a href="mailto:jaimetjahaja.music@gmail.com">jaimetjahaja.music@gmail.com</a></div>
+        </div>
+        <div>
+          <div class="contact-item-label">Website</div>
+          <div class="contact-item-value"><a href="https://www.jaime-tjahaja.com/music" target="_blank">jaime-tjahaja.com/music</a></div>
+        </div>
+        <div>
+          <div class="contact-item-label">Stream / Links</div>
+          <div class="contact-item-value"><a href="https://linktr.ee/jaimetjahaja" target="_blank">linktr.ee/jaimetjahaja</a></div>
+        </div>
+        <div>
+          <div class="contact-item-label">Sounds Like</div>
+          <div class="contact-item-value" style="font-size:0.82rem; color:rgba(255,255,255,0.6);">Paul Simon · Jackson Browne · Bob Dylan · Elliott Smith · Mark Knopfler</div>
+        </div>
+        <div>
+          <div class="contact-item-label">Influences</div>
+          <div class="contact-item-value" style="font-size:0.82rem; color:rgba(255,255,255,0.6);">Paul Simon · Blake Mills · Jeff Tweedy · Marisa Anderson</div>
+        </div>
+        <div>
+          <div class="contact-item-label">Based In</div>
+          <div class="contact-item-value" style="font-size:0.82rem; color:rgba(255,255,255,0.6);">Oakland, CA</div>
+        </div>
+      </div>
+      <div style="margin-top:2rem;">
+        <a href="../assets/jaime-tjahaja-epk.pdf" target="_blank" class="btn btn-orange">↓ &nbsp;Download PDF EPK</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    &copy; 2026 Jaime Tjahaja &mdash; Photography by Kyle Carnes, Adam Van Der Veer &amp; Lane Diko
+  </footer>
+
+</body>
+</html>
